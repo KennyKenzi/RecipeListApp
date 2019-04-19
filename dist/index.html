@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <style>
+    
+    body{
+        background-color:rgb(79, 145, 124)
+      }
+      .container {
+        background-color:white
+      }
+      .container-fluid {
+        background-color:white
+      }
+      .first{
+        background-color:rgb(79, 145, 124)
+      }
+  
+      .mainjumbo{
+        background-color:rgb(148, 200, 207)
+      }
+  
+      .row{
+        padding:15px;
+  
+      }
+
+      .display-4{
+        font-weight: bold
+      }
+      .column{
+        background-color:rgb(79, 145, 124);
+        text-align: center;
+      }
+      .close-recipe{
+        opacity: 0;
+        transition: all ease 0.5s
+
+      }
+      .hover_test:hover .close-recipe{
+        opacity: 1;
+        
+      }
+    
+      .card-img-icon{
+        width:60%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; 
+        padding-top: 2%;
+        height: 70px;
+        border-radius:100%;
+        object-fit: fill
+      }
+      .ingredient-ind{
+        height: auto;
+        margin-bottom: 2%
+      }
+      .ingredient-ind:hover{
+      background-color: rgb(167, 207, 167);
+      }
+      .ingredient-ind:active{
+      background-color: rgb(167, 207, 167);
+      }
+      .img-top{
+        width:100%;
+        vertical-align:super;
+        object-fit: cover;
+        height: 200px;
+        margin:0;
+        padding:0;
+        opacity: 0.5;    
+      }
+      .add_shopping{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto; 
+      }
+      .recipe__item{
+        margin: 2%
+      }
+      ul.recipe__ingredient-list{
+        list-style-image: url("https://img.icons8.com/material/24/000000/ok.png")
+      }
+      ul.shopping__ingredient-list{
+        
+        list-style: none;
+        min-width: 100%;
+        margin: 0 auto;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0
+        
+      }
+      li.shopping__item{
+        display:inline-flex;
+        padding-top: 5%;
+      }
+
+      .shp_lst{
+        width: 25%;
+        height: 50%;
+        margin-bottom: 5%
+      }
+      .col2{
+        height: 800px
+      }
+      .shopping__ingredients{
+        background-color: white
+      }
+     
+  
+    </style>
+
+</head>
+
+<body>
+    <div class="container first">
+
+          <div class="page-header">
+              <h1>--------------</h1>
+          </div>
+
+          <div class="jumbotron mainjumbo">
+            <div>
+            <h1 class="display-4">RECIPE APP</h1>
+
+            <p class="lead">This is a simple Recipe appzz
+            <hr class="my-4">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search lots of recipes...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary search__btn" type="button">Search</button>
+                </div>
+              </div>
+            <!--row start-->
+            <div  class="row">
+                <!--cl start-->
+                <div class="column col-lg-3 col-md-3 col-sm-3 rounded"  >
+                  <h5>Search Results</h5>
+                    <div class="search__container col2 overflow-auto">
+
+                      <!--start-->
+                      <!--Ing 1-->
+<!-- 
+                      <div class="card ingredient-ind">
+
+                          <img class="card-img-icon" src="download.jpg" alt="Picture not available">
+                          <div class="card-body">
+                            <h5 class="card-title">Spaghetti Bolognese</h5>
+                            <p class="card-text">101COOKBOOK.COM</p>
+                          </div>
+
+                      </div>
+                      
+                     
+                      <div class="card ingredient-ind button">
+                        <img class="card-img-icon" src="alfredo.jpg" alt="Picture not available">
+                          <div class="card-body">
+                            <h5 class="card-title">Pasta Alfredo</h5>
+                            <p class="card-text">PIONEER WOMAN</p>
+                          </div>
+                      </div>
+
+                     
+                      <div class="card ingredient-ind button">
+                        <img class="card-img-icon" src="pastabake.jpg" alt="Picture not available">
+                          <div class="card-body">
+                            <h5 class="card-title">MAC AND CHEESE</h5>
+                            <p class="card-text">101COOKBOOK.COM</p>
+                          </div>
+                      </div> 
+
+                      
+                      <div class="card ingredient-ind">
+                        <img class="card-img-icon" src="realpastabake.jpg" alt="Picture not available">
+                          <div class="card-body">
+                            <h5 class="card-title">PASTA BAKE</h5>
+                            <p class="card-text">101COOKBOOK.COM</p>
+                          </div>
+                      </div>
+
+                      <div class="card ingredient-ind">
+                          <img class="card-img-icon" src="lasagna.jpg" alt="Picture not available">
+                            <div class="card-body">
+                              <h5 class="card-title">LASAGNA</h5>
+                              <p class="card-text">ANYWHERE IN THE WORLD</p>
+                            </div>
+                        </div> -->
+                      
+
+                    </div>
+
+                </div>
+                <!--cl end-->
+                <!--cl start-->
+                <div class="column second-col col-lg-6 col-md-6 col-sm-6 rounded"  >
+                  <div class="recipe__contain">
+                  <h5>Recipe</h5> 
+                  <!-- <img class="img-top" src="download.jpg" alt="Card image cap">
+                  
+                  <div class="container rounded">                 
+                 
+                    <div class="container" >
+                      <h1 class="recipe__title">
+                          <span>Spaghetti Bolognese</span>
+                      </h1>
+                      <div class="timing">
+                      <p  style="float:left"><img src="https://img.icons8.com/material-outlined/24/000000/alarm-clock.png"> 60 Minutes</span></p>
+                      </div>
+                      <br>
+                     <br>
+                    
+                      <p class="servings"style="float:left"><span><img src="https://img.icons8.com/android/24/000000/user.png">4 Servings</span></p>
+                      <p type="button" class="button_minus" style="float:left"><span><img src="https://img.icons8.com/material-sharp/24/000000/minus.png"></span></p>
+                      <p type="button" class="button_plus" style="float:left"><span><img src="https://img.icons8.com/material-sharp/24/000000/plus.png"></span></p>
+                      <img style="float:right" src="https://img.icons8.com/material/24/000000/hearts-filled.png">
+                      
+                     
+                    </div>
+                    <br>
+                    <br>
+                    <div class="recipe__ingredients"></div>
+                        <ul class="recipe__ingredient-list"> 
+                            <li class="recipe__item">
+                                    5 cups of pasta
+                            </li>
+                            <li class="recipe__item">
+                                    2 tbps of ricotta cheese
+                            </li>
+                            <li class="recipe__item">
+                                    1 can of tomatoes, whole or crushed
+                            </li>
+        
+        
+                            <li class="recipe__item">
+                                    2 can tuna packed in olive oil
+                            </li>
+        
+                            <li class="recipe__item">
+                              2 cups grated parmesan cheese
+                            </li>
+        
+                            <li class="recipe__item">
+                                1 tbps Fresh basil
+                            </li>
+
+                            <li class="recipe__item">
+                                A pinch of salt
+                            </li>
+
+                            <li class="recipe__item">
+                                Half a lemon
+                            </li>
+
+                            <li class="recipe__item">
+                                more stuff
+                            </li>
+
+                            <li class="recipe__item">
+                                more stuff
+                            </li>
+
+                            <li class="recipe__item">
+                                more stuff
+                            </li>
+
+                            <li class="recipe__item">
+                                more stuff
+                            </li>
+
+                            <li class="recipe__item">
+                                more stuff
+                            </li>
+                        </ul>
+                        <div type= "button" class="add_shopping list">
+                            Add to Shopping List
+                            <img src="https://img.icons8.com/material-rounded/24/000000/shopping-cart.png" alt="shopping cart">
+                        </div>
+                        <br>
+
+                  </div>-->
+                  </div>
+                </div> 
+                <!--cl end-->
+
+
+                <!--cl start-->
+                <div class="column col-lg-3 col-md-3 col-sm-3 rounded"  >
+                  <h5>Shopping List</h5>
+                  <div class="shopping__list_contain rounded" >
+               
+                        
+                        
+                          <div class="shopping__ingredients">
+                          <ul class="shopping__ingredient-list "> 
+
+                              <!-- <li class="shopping__item">  
+                                <input class="shp_lst" type="number" value=5></input>
+                                <p>cups of pasta</p>
+                                <button type="button" class="close close-recipe" aria-label="Close" >
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                              </li>
+
+                              <li class="shopping__item">  
+                                  <input class="shp_lst" type="number" value=2></input>
+                                  <p>tbps ricotta cheese</p>
+                                  <button type="button" class="close close-recipe" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </li>    
+                                
+                                <li class="shopping__item">  
+                                    <input class="shp_lst" type="number" value=1></input>
+                                    <p>can of tomatoes</p>
+                                    <button type="button" class="close close-recipe" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </li>  
+
+                                  <li class="shopping__item">  
+                                      <input class="shp_lst" type="number" value=2> </input>
+                                      <p>can tuna packed in olive oil</p>
+                                      <button type="button" class="close close-recipe" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </li>  
+
+                                    <li class="shopping__item">  
+                                        <input class="shp_lst" type="number" value=2></input>
+                                        <p>cups grated parmesan cheese</p>
+                                        <button type="button" class="close close-recipe" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </li> 
+                         -->
+                          </ul>
+
+                        </div>     
+                        
+                        <div type="button" class="btn">
+                                Clear
+                        </div>
+                  </div>
+                </div>
+                 <!--cl end-->
+            </div>
+            <!--row end-->
+            </div>
+          </div>
+    </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/bundle.js"></script></body>
+
+<script type="text/javascript" src="js/bundle.js"></script></body>
+</html>

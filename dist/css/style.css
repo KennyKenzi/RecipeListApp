@@ -1,0 +1,106 @@
+    
+    body{
+      background-color:rgb(79, 145, 124)
+    }
+    .container {
+      background-color:white
+    }
+    .container-fluid {
+      background-color:white
+    }
+    .first{
+      background-color:rgb(79, 145, 124)
+    }
+
+    .mainjumbo{
+      background-color:rgb(148, 200, 207)
+    }
+
+    .row{
+      padding:15px;
+
+    }
+
+    .display-4{
+      font-weight: bold
+    }
+    .column{
+      background-color:rgb(79, 145, 124);
+      text-align: center;
+    }
+    .close-recipe{
+      opacity: 0;
+      transition: all ease 0.5s
+
+    }
+    .hover_test:hover .close-recipe{
+      opacity: 1;
+      
+    }
+  
+    .card-img-icon{
+      width:60%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+      padding-top: 2%;
+      height: 70px;
+      border-radius:100%;
+      object-fit: fill
+    }
+    .ingredient-ind{
+      height: auto;
+      margin-bottom: 2%
+    }
+    .ingredient-ind:hover{
+    background-color: rgb(167, 207, 167);
+    }
+    .ingredient-ind:active{
+    background-color: rgb(167, 207, 167);
+    }
+    .img-top{
+      width:100%;
+      vertical-align:super;
+      object-fit: cover;
+      height: 200px;
+      margin:0;
+      padding:0;
+      opacity: 0.5;    
+    }
+    .add_shopping{
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .recipe__item{
+      margin: 2%
+    }
+    ul.recipe__ingredient-list{
+      list-style-image: url("https://img.icons8.com/material/24/000000/ok.png")
+    }
+    ul.shopping__ingredient-list{
+      
+      list-style: none;
+      min-width: 100%;
+      margin: 0 auto;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0
+      
+    }
+    li.shopping__item{
+      display:inline-flex;
+      padding-top: 5%;
+    }
+
+    .shp_lst{
+      width: 25%;
+      height: 50%;
+      margin-bottom: 5%
+    }
+    .col2{
+      height: 800px
+    }
+    .shopping__ingredients{
+      background-color: white
+    }
