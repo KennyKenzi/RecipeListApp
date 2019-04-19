@@ -12,11 +12,17 @@ export const elements={
     servings: document.querySelector(".servings"),
     servingid: document.querySelector("#serve"),
     servContain: document.querySelector(".servs"),
-    shopping_btn: document.querySelector(".add_shopping list")
+    shop_list: document.querySelector(".shopping__ingredient-list"),
+    shop_contain: document.querySelector(".shopping__list_contain"),
+    
+
 }
 export const elementsList={
     minus: ".button_minus",
-    plus: ".button_plus"
+    plus: ".button_plus",
+    shopping_btn: ".add_shopping",
+    close: ".close",
+    clear_btn: ".clear_btn",
 }
 
 export const renderLoader = (parent)=>{

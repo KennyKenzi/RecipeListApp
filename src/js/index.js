@@ -1,8 +1,12 @@
 import Search from './models/Search';
+import Recipe from './models/Recipe';
+import List from './models/List';
 import{elements, elementsList,renderLoader,removeLoader} from './views/base';
 import * as searchViews from './views/searchViews';
 import * as recipeViews from './views/recipeViews';
-import Recipe from './models/Recipe';
+import * as listViews from './views/listViews';
+
+
 
 
 const state= {};
@@ -86,8 +90,7 @@ const controlSearch = async () =>{
             recipeViews.renderRec(state.rec)
 
           }
- 
-          console.log('real',state.rec)
+          
 }
 
 
@@ -95,41 +98,58 @@ const controlSearch = async () =>{
 window.addEventListener("hashchange", recipeFunc)
 
     
-    elements.recipe_contain.addEventListener('click', e=>{
+elements.recipe_contain.addEventListener('click', e=>{
 
-        const curr = recipeViews.getServings()
+    const curr = recipeViews.getServings()
 
-        if (e.target.matches(`${elementsList.minus}, ${elementsList.minus} *`)) {
+    if (e.target.matches(`${elementsList.minus}, ${elementsList.minus} *`)) {
 
             //get curr serving
-            if (curr>1){
-                recipeViews.clearRes()            
-                state.rec.updateIngredient(curr ,'minus')
+        if (curr>1){
+            recipeViews.clearRes()            
+            state.rec.updateIngredient(curr ,'minus')
     
-                console.log('second',state.rec)
-                recipeViews.renderRec(state.rec)
-                recipeViews.updateServing(curr, 'minus')
+            recipeViews.renderRec(state.rec)
+            recipeViews.updateServing(curr, 'minus')
                 
-            }
+        }
             
 
-        }else if(e.target.matches(`${elementsList.plus}, ${elementsList.plus} *`)){
+    }else if(e.target.matches(`${elementsList.plus}, ${elementsList.plus} *`)){
            
             recipeViews.clearRes()
             state.rec.updateIngredient(curr ,'add')
-
-            console.log('second',state.rec)
+           
             recipeViews.renderRec(state.rec)
             recipeViews.updateServing(curr, 'add')
 
-        }else {
-            console.log('none yet')
-        }
+    }else if (e.target.matches(`${elementsList.shopping_btn}, ${elementsList.shopping_btn} *`)) {
+            moveToShopping()
     
-        
-    
+    }
     })
+    elements.shop_contain.addEventListener('click', e=>{
 
+            if(e.target.matches(`${elementsList.close}, ${elementsList.close} *`)){
+                
+                const ids  = e.target.closest(`${elementsList.close}, ${elementsList.close} *`).parentElement.parentElement.id
+                state.list.deleteItem(ids)
+                listViews.deleteItem(ids)
+            }else if(e.target.matches(`${elementsList.clear_btn},${elementsList.clear_btn}`)){
+                
+                console.log('here',state.list.item)
+                
+                state.list.item.forEach(el => {
+                   
+                   console.log(el.id)
+                    elements.shop_list.innerHTML =""
+                    state.list.item = []
+                    
+                    
+                });
+            }
+        }
+    )
 
 
 
@@ -137,11 +157,19 @@ window.addEventListener("hashchange", recipeFunc)
 
 const moveToShopping = ()=>{
 
-//get list
 
+//add list to state
+if (!state.list){
+    state.list = new List
+}
+
+state.rec.ingredients.forEach(el => {
+
+    const item = state.list.addItem(el.count, el.ingredient)
+    listViews.renderList(item)
+});
 //add to shoppinglist
 
 
 }
 
-elements.shopping_btn.addEventListener('click', moveToShopping)
