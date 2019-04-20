@@ -31,10 +31,21 @@ const time = (recipe.ingredients.length)* 4
 return time
 }
 
+export const formatCount=(numb)=>{
+let str = numb.toString()
+if (str.includes('.')){
+  
+  let newnum = numb.toFixed(2)
+
+  return newnum
+}else return numb
+
+}
+
 export const ingred=(recipe)=>{
   let ingr = '';
   for(let i = 0; i < recipe.ingredients.length; i++){
-      ingr += `<li class="recipe__item">${recipe.ingredients[i].count} ${recipe.ingredients[i].ingredient}</li>`;
+      ingr += `<li class="recipe__item">${formatCount(recipe.ingredients[i].count)} ${recipe.ingredients[i].ingredient}</li>`;
 }
 return ingr
 }
@@ -66,9 +77,8 @@ export const renderRec=(recipe)=>{
             <span class="servings" id="serve" >4 Servings</span>
             <span type="button" class="button_minus" ><img src="https://img.icons8.com/material-sharp/24/000000/minus.png"></span>
             <span type="button" class="button_plus" ><img src="https://img.icons8.com/material-sharp/24/000000/plus.png"></span>
-            <img style="float:right" src="https://img.icons8.com/material/24/000000/hearts-filled.png">
-           
-            
+            <img class="like_btn" style="float:right" src="https://img.icons8.com/material/24/000000/hearts-filled.png">
+                    
             </span>
 
            </div> 

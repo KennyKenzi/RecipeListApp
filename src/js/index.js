@@ -91,43 +91,51 @@ const controlSearch = async () =>{
 
           }
           
-}
-
-
-
-window.addEventListener("hashchange", recipeFunc)
-
-    
-elements.recipe_contain.addEventListener('click', e=>{
-
-    const curr = recipeViews.getServings()
-
-    if (e.target.matches(`${elementsList.minus}, ${elementsList.minus} *`)) {
-
-            //get curr serving
-        if (curr>1){
-            recipeViews.clearRes()            
-            state.rec.updateIngredient(curr ,'minus')
-    
-            recipeViews.renderRec(state.rec)
-            recipeViews.updateServing(curr, 'minus')
-                
-        }
-            
-
-    }else if(e.target.matches(`${elementsList.plus}, ${elementsList.plus} *`)){
-           
-            recipeViews.clearRes()
-            state.rec.updateIngredient(curr ,'add')
-           
-            recipeViews.renderRec(state.rec)
-            recipeViews.updateServing(curr, 'add')
-
-    }else if (e.target.matches(`${elementsList.shopping_btn}, ${elementsList.shopping_btn} *`)) {
-            moveToShopping()
-    
     }
-    })
+
+
+
+    window.addEventListener("hashchange", recipeFunc)
+
+    
+    elements.recipe_contain.addEventListener('click', e=>{
+
+        const curr = recipeViews.getServings()
+
+        if (e.target.matches(`${elementsList.minus}, ${elementsList.minus} *`)) {
+
+                //get curr serving
+            if (curr>1){
+                recipeViews.clearRes()            
+                state.rec.updateIngredient(curr ,'minus')
+        
+                recipeViews.renderRec(state.rec)
+                recipeViews.updateServing(curr, 'minus')
+                    
+            }
+                
+
+        }else if(e.target.matches(`${elementsList.plus}, ${elementsList.plus} *`)){
+            
+                recipeViews.clearRes()
+                state.rec.updateIngredient(curr ,'add')
+            
+                recipeViews.renderRec(state.rec)
+                recipeViews.updateServing(curr, 'add')
+
+        }else if (e.target.matches(`${elementsList.shopping_btn}, ${elementsList.shopping_btn} *`)) {
+                moveToShopping()
+        
+        }else if(e.target.matches(`.like_btn, .like_btn *`)){
+
+            confirm('Feature coming soon!! Dont judge me!')
+        }
+
+        })
+
+
+
+
     elements.shop_contain.addEventListener('click', e=>{
 
             if(e.target.matches(`${elementsList.close}, ${elementsList.close} *`)){
@@ -137,11 +145,9 @@ elements.recipe_contain.addEventListener('click', e=>{
                 listViews.deleteItem(ids)
             }else if(e.target.matches(`${elementsList.clear_btn},${elementsList.clear_btn}`)){
                 
-                console.log('here',state.list.item)
                 
                 state.list.item.forEach(el => {
                    
-                   console.log(el.id)
                     elements.shop_list.innerHTML =""
                     state.list.item = []
                     
@@ -154,6 +160,7 @@ elements.recipe_contain.addEventListener('click', e=>{
 
 
 //SHOPPING LIST CONTROLLER
+
 
 const moveToShopping = ()=>{
 
