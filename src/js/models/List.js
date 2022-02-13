@@ -6,16 +6,31 @@ export default class List {
         this.item = []
     }
 
-    addItem(count, ingredient){
-
+    addItem(count, ingredient, id){
+        
         const content ={
-            id : uniqid(),
+            id,
             count,
             ingredient
         }
 
         this.item.push(content)
         return content
+    }
+
+    updateItem(stuff){
+        
+        this.item.map((el)=>{
+           
+            if(el.id === stuff.id){
+                el.count = Number(el.count) + Number(stuff.count)
+
+                return stuff
+
+            }
+            
+        })
+     
     }
 
     deleteItem(id){

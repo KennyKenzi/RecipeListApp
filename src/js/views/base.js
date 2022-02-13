@@ -14,7 +14,6 @@ export const elements={
     servContain: document.querySelector(".servs"),
     shop_list: document.querySelector(".shopping__ingredient-list"),
     shop_contain: document.querySelector(".shopping__list_contain"),
-    
 
 }
 export const elementsList={
@@ -23,6 +22,9 @@ export const elementsList={
     shopping_btn: ".add_shopping",
     close: ".close",
     clear_btn: ".clear_btn",
+    favourite: ".like_btn",
+    heart_container: "hearts_container",
+    like_list: "like_list"
 }
 
 export const renderLoader = (parent)=>{

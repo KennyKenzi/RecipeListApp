@@ -1,6 +1,6 @@
-import axios from 'axios';
-import {API, cAPI, mURL,mURL2, proxy} from './../config'
-import {elements} from './../views/base'
+import {searchForRecipe} from './../config'
+import { search } from '../../test'
+
 
 export default class Search {
     constructor(query){
@@ -10,18 +10,16 @@ export default class Search {
     async getRecipe(){
 
         try{
-    
-            const gtapi = await axios(`${proxy}${mURL}/search?key=${cAPI}&q=${this.query}`)
-            //const getapi = await axios(`${proxy}${mURL2}/?i=${this.query}`)
-    
-            this.recipees = gtapi.data.recipes
-            //this.recipees = getapi.data.results
+
+            const gtapi = await searchForRecipe(this.query)
+            //API returns maximum of 10 recipes because 10 was set as a parameter below.
             
-            //console.log(this.recipees)
-    
-            } catch(err){
-                console.log(err)
-            } 
+            this.recipees = gtapi.data
+            // return this.recipees = search.data
+            // console.log(this.recipees)
+        } catch(err){
+            console.log(err)
+        } 
     
     }
 

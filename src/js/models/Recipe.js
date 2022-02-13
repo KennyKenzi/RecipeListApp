@@ -1,33 +1,39 @@
 import axios from 'axios';
-import {API,cAPI, mURL,mURL2, proxy} from './../config'
+import {displaySelectedRecipe} from './../config'
 import {elements} from './../views/base'
+import {recipe, search} from './../../test'
 
 
 export default class Recipe {
     constructor(id){
         this.id = id
     }
-
+ 
     async getRec(){
 
         try{
-    
-            const getapi = await axios(`${proxy}${mURL}/get?key=${cAPI}&rId=${this.id}`)
-            //const getapi = await axios(`${proxy}${mURL2}/?i=${this.query}`)
-    
-            //this.recipees = gtapi.data.recipes
-            const recipees = getapi.data.recipe
-            this.ingredients = recipees.ingredients
-            this.title= recipees.title
-            this.publisher= recipees.publisher
-            this.image= recipees.image_url
-            this.rank= recipees.social_rank
+            
+            const recipees = await displaySelectedRecipe(this.id)
+           // const recipees = recipe
+            
 
-        //    console.log(recipees)
+            this.ingredients = recipees.data.extendedIngredients
+            this.title= recipees.data.title
+            this.publisher= recipees.data.creditsText
+            this.image= recipees.data.image
+            this.rank= recipees.data.healthScore
+            this.timing = recipees.data.readyInMinutes
+            this.serving = recipees.data.servings
+            this.vegetarian = recipees.data.vegetarian
+            this.vegan = recipees.data.vegan
+            this.id = recipees.data.id
+            
     
             } catch(err){
                 console.log(err)
             }
+
+        this.checkFavourites(this.id)
     
     }
 
@@ -36,10 +42,12 @@ export default class Recipe {
         let newIngred= this.ingredients.map(el =>{
            
             
-                const fin= el.split(" ")
+                const fin= el.original.split(" ")
              
                     
                 const stuff={}
+                stuff.id = el.id
+
                 //if first is a number
                  if(parseInt(fin[0])){
                     stuff.count = fin[0]
@@ -76,7 +84,7 @@ export default class Recipe {
                     }
                         
                     return stuff
-                
+    
               
 
         });
@@ -109,6 +117,30 @@ export default class Recipe {
             this.ingredients[i].count = newcount[i]
             
         }  
+
+    }
+
+
+    checkFavourites(id){
+
+        let storageStuff = JSON.parse(localStorage.getItem('likes'))
+
+        
+        var hearts
+      
+        if(storageStuff == null){
+          hearts = `<img class="like_btn" style="float:right" src="https://img.icons8.com/material/24/000000/hearts-filled.png"></img>`
+
+        }else if(storageStuff.includes(id)){
+          hearts = `<img class="like_btn" style="float:right" src="https://img.icons8.com/material/24/4F917C/hearts-filled.png"></img>`
+
+        }else{
+           hearts = `<img class="like_btn" style="float:right" src="https://img.icons8.com/material/24/000000/hearts-filled.png"></img>`
+
+        }
+      
+        this.hearts = hearts
+        // document.querySelector(elementsList.plus).src = hearts
 
     }
 

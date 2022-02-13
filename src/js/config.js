@@ -1,12 +1,52 @@
+import axios from 'axios';
 
-export const aAPI = '2632cb2b618352483bfa15873ec931aa';
-export const bAPI = '03c83bce10f142e46aea74d3416b19dd';
-export const cAPI = '38118463b151ec7bdb08ad04ddb526cb';
-export const eAPI = 'e7bb43f9be2215006b33a12c0532a92a';
-export const fAPI = '41850cfa19c0345d3c0c6f9fc7af473f';
 
-export const mURL = 'https://www.food2fork.com/api';
-export const proxy = 'https://cors-anywhere.herokuapp.com/';
+export const aAPI = 'xxxxxxxxxxxxxxxxxx';
+export const bAPI = 'xxxxxxxxxxxxxxxxxx';
+export const cAPI = 'xxxxxxxxxxxxxxxxxx';
+export const eAPI = 'xxxxxxxxxxxxxxxxxx';
+export const fAPI = 'xxxxxxxxxxxxxxxxxx';
 
-export const API2 = '';
-export const mURL2 = 'http://www.recipepuppy.com/api';
+export const mURL = 'xxxxxxxxxxxxxxxxxx';
+export const proxy = 'xxxxxxxxxxxxxxxxxx';
+
+export const API2 = 'xxxxxxxxxxxxxxxxxx';
+export const mURL2 = 'xxxxxxxxxxxxxxxxxx';
+
+export const spoonacularURL = 'xxxxxxxxxxxxxxxxxx';
+export const spoonacularAPI = 'xxxxxxxxxxxxxxxxxx';
+export const spoonacularAPI2 = 'xxxxxxxxxxxxxxxxxx';
+export const spoonacularAPI3 = 'xxxxxxxxxxxxxxxxxx'
+
+
+
+export const displaySelectedRecipe =(id)=>{
+
+    
+    return axios(`${spoonacularURL}/recipes/${id}/information?apiKey=${spoonacularAPI}`) 
+
+}
+
+
+export const searchForRecipe =(query)=>{
+    
+    let inputs = query
+    let ingredient
+
+    //split ingredients if there are multiple and returns 'ingredient'
+    if(inputs.includes(",")){
+        const inputsArray = inputs.split(',')
+        const arrayNum = inputsArray.length
+      
+        ingredient = inputsArray[0]
+        for (let i= 1; i < inputsArray.length; i++) {
+          ingredient += `,+${inputsArray[i].trim()}`
+        }
+
+    }else{
+        ingredient =  query 
+    }
+
+    return axios(`${spoonacularURL}/recipes/findByIngredients?apiKey=${spoonacularAPI}&ingredients=${ingredient}&number=10`)
+
+}
